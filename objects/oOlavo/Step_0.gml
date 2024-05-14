@@ -3,7 +3,9 @@
 
 if (estate = "idle")
 	{
-		if(find_player()){
+		var vfindPLayer = find_player()
+		if (vfindPLayer)
+		{
 		estate = "following"
 		}
 	}

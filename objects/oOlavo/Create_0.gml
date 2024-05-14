@@ -1,6 +1,5 @@
-/// @description Inserir descrição aqui
+// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-
 vel_x = 0;
 vel_y = 0;
 vFriction = 0.5;

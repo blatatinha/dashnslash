@@ -6,11 +6,14 @@ function find_player(){
 		instance_create_layer(oOlavo.x, oOlavo.y, "instances", oFindPlayer)
 	}
 	
-	if(oFindPlayer.detectPlayer = 1)
+	if(oFindPlayer.detectPlayer = true)
 	{
+		if (instance_exists(oFindPlayer))
+		{
+		instance_destroy(oFindPlayer)
+		}
 		return true;
+		
 	}
-
-	return 0;
-	
+	return false;
 }
