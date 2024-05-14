@@ -5,7 +5,7 @@ vel_y = 0;
 vFriction = 0.5;
 vGravity = 1;
 velJump = 10;
-vel_max = 2.7;
+vel_max = 2;
 
 estate=[
 "idle",

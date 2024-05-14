@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"find_player",
+  "%Name":"player_estates",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"find_player",
+  "name":"player_estates",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

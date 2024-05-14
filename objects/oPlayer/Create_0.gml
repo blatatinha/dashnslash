@@ -3,8 +3,9 @@
 
 vel_x = 0;
 vel_y = 0;
-vFriction = 0.5;
 vGravity = 1;
-velJump = 10;
+velJump = 14;
+vfriction=0.1
 vel_max = 1.5;
-
+vdash= 5
+state = state_free
