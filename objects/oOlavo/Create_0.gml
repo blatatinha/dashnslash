@@ -8,10 +8,10 @@ vGravity = 1;
 velJump = 10;
 vel_max = 2.7;
 
-/*estado={
+estate=[
 "idle",
 "following",
 "fighting",
-}*/
+]
 
-estate="following";
+estate="idle";
