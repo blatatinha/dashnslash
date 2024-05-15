@@ -19,14 +19,13 @@ function state_free()
 	var right = keyboard_check(ord("D"));
 	var jump = keyboard_check_pressed(ord("W"));
 	var vDirection = ((right - left) * vel_max);
-	var grounded = place_meeting(x, y + 1, obj_colision)
-
+	var grounded = place_meeting(x, y + 1, obj_colision);
+    var swing = mouse_check_button_pressed(mb_left);
 
 	vel_x += lerp( vel_x, vDirection, vel_max)
 
 	if (!grounded) 
 	{
-		
 		vel_y += vGravity
 	}
 	
@@ -52,6 +51,8 @@ function state_free()
 	
 	//swinging
 		//oSlash é apenas a colisao da espada e necessita animação
+	if (swing)
+	{
 	var endswing = function()
 	{
 		instance_destroy(oSlash);
@@ -59,24 +60,29 @@ function state_free()
 	}
 	var	timerswing = time_source_create(time_source_game, 10, time_source_units_frames, endswing);
 
-	var swing = mouse_check_button_pressed(mb_left)
-
-	if (swing)
-	{
-		instance_create_layer(x + 20 * image_xscale, y, "Instances", oSlash);
-		time_source_start(timerswing);
+	instance_create_layer(x + 20 * image_xscale, y, "Instances", oSlash);
+	time_source_start(timerswing);
 	}	
 }
 
 function state_dash()
 {
-	var dashtimer = time_source_create(time_source_game, 20, time_source_units_frames, )
-		var dashdistance = x + 50 * image_xscale;
-		move_towards_point(x, y, 5 )
-		
-		state = state_free;
-		
-		point_distance()
+	var willcolide = place_meeting(x+50, y, obj_colision)
+	
+	if(willcolide)
+	{
+	var finishdash = function()
+	{
+	speed = 0
+	state = state_free;
+	}
+	var dashtimer = time_source_create(time_source_game, 10, time_source_units_frames, finishdash)
+	
+	var dashdistance = x * image_xscale;
+	
+	move_towards_point(dashdistance, y, vdash* vel_max);
+	time_source_start(dashtimer);
+	}
 }
 /*function knockback()
 {
