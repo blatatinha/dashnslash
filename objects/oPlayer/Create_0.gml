@@ -7,5 +7,5 @@ vGravity = 1;
 velJump = 14;
 vfriction=0.1
 vel_max = 1.5;
-vdash= 5
+vdash= 5;
 state = state_free

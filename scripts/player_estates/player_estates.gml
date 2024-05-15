@@ -70,8 +70,13 @@ function state_free()
 
 function state_dash()
 {
-		vel_x += vdash * image_xscale * vel_max;	
+	var dashtimer = time_source_create(time_source_game, 20, time_source_units_frames, )
+		var dashdistance = x + 50 * image_xscale;
+		move_towards_point(x, y, 5 )
+		
 		state = state_free;
+		
+		point_distance()
 }
 /*function knockback()
 {

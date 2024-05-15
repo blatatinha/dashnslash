@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"findplayer",
+  "%Name":"oEnemy_state",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"findplayer",
+  "name":"oEnemy_state",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

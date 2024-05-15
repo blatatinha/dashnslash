@@ -6,11 +6,4 @@ vFriction = 0.5;
 vGravity = 1;
 velJump = 10;
 vel_max = 2;
-
-estate=[
-"idle",
-"following",
-"fighting",
-]
-
-estate="idle";
+state = estate_idle;
