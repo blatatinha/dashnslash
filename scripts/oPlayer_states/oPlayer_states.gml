@@ -20,13 +20,18 @@ function state_free()
 	var jump = keyboard_check_pressed(ord("W"));
 	var vDirection = ((right - left) * vel_max);
 	var grounded = place_meeting(x, y + 1, obj_colision);
-    var swing = mouse_check_button_pressed(mb_left);
-
+    
+	
 	vel_x += lerp( vel_x, vDirection, vel_max)
 
 	if (!grounded) 
 	{
 		vel_y += vGravity
+	}
+	
+	if (grounded) 
+	{
+		dashed = false;
 	}
 	
 	if(jump && grounded)
@@ -44,45 +49,51 @@ function state_free()
 		state_healing()
 	}
 	
-	if (keyboard_check_pressed(vk_shift))
+	if (keyboard_check_pressed(vk_shift) and !dashed)
 	{
 	 state = state_dash
 	}
 	
 	//swinging
 		//oSlash é apenas a colisao da espada e necessita animação
+	var swing = mouse_check_button_pressed(mb_left);
+		
 	if (swing)
 	{
-	var endswing = function()
-	{
-		instance_destroy(oSlash);
+		var endswing = function()
+		{
+			instance_destroy(oSlash);
+		}
+		var	timerswing = time_source_create(time_source_game, 10, time_source_units_frames, endswing);
 
-	}
-	var	timerswing = time_source_create(time_source_game, 10, time_source_units_frames, endswing);
-
-	instance_create_layer(x + 20 * image_xscale, y, "Instances", oSlash);
-	time_source_start(timerswing);
+		instance_create_layer(x + 20 * image_xscale, y, "Instances", oSlash);
+		
+		time_source_start(timerswing);
 	}	
 }
-
 function state_dash()
-{
-	var willcolide = place_meeting(x+50, y, obj_colision)
+{	
+		dashed = true
+		var _enddash = function()
+		{
+			state= state_free;
+		}
+
+		var	_timerdash = time_source_create(time_source_game, 10, time_source_units_frames, _enddash);
+		vel_x = vel_dash * image_xscale;
+		vel_y = 0
+		time_source_start(_timerdash);
+
+		if (place_meeting(x + vel_x, y, obj_colision))
+		{
+			state = state_free;
 	
-	if(willcolide)
-	{
-	var finishdash = function()
-	{
-	speed = 0
-	state = state_free;
-	}
-	var dashtimer = time_source_create(time_source_game, 10, time_source_units_frames, finishdash)
-	
-	var dashdistance = x * image_xscale;
-	
-	move_towards_point(dashdistance, y, vdash* vel_max);
-	time_source_start(dashtimer);
-	}
+			while(!place_meeting(x + sign(vel_x) , y, obj_colision))
+			{
+				x+=sign(vel_x);
+			}
+			vel_x= 0;
+		}
 }
 /*function knockback()
 {
