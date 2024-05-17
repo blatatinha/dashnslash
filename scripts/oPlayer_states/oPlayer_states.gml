@@ -17,7 +17,7 @@ function state_free()
 {
 	var left = keyboard_check(ord("A"));
 	var right = keyboard_check(ord("D"));
-	var jump = keyboard_check_pressed(ord("W"));
+	var jump = keyboard_check_pressed(vk_space);
 	var vDirection = ((right - left) * vel_max);
 	var grounded = place_meeting(x, y + 1, obj_colision);
     
@@ -41,9 +41,11 @@ function state_free()
 	
 	if(vel_x != 0)
 	{
+	sprite_index= sPlayerWalking
 	image_xscale= sign(vel_x);
-	}
-	
+	}else{
+	sprite_index= sPlayer
+	}	
 	if(grounded and keyboard_check_pressed(ord("F")))
 	{
 		state_healing()
@@ -79,7 +81,7 @@ function state_dash()
 			state= state_free;
 		}
 
-		var	_timerdash = time_source_create(time_source_game, 10, time_source_units_frames, _enddash);
+		var	_timerdash = time_source_create(time_source_game, 12, time_source_units_frames, _enddash);
 		vel_x = vel_dash * image_xscale;
 		vel_y = 0
 		time_source_start(_timerdash);
@@ -95,7 +97,7 @@ function state_dash()
 			vel_x= 0;
 		}
 }
-/*function knockback()
+function knockback()
 {
-
+    
 }

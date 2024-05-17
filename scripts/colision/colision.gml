@@ -1,7 +1,7 @@
 // Os recursos de script mudaram para a v2.3.0; veja
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
-function colision(){
-
+function colision()
+{
 	if (place_meeting(x + vel_x, y, obj_colision))
 	{
 		while(!place_meeting(x + sign(vel_x) , y, obj_colision))
@@ -19,5 +19,4 @@ function colision(){
 		}
 		vel_y= 0;
 	}
-
 }

@@ -17,6 +17,7 @@
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sons","order":3,"path":"folders/Sons.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"player","order":4,"path":"folders/Sprites/player.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"obj_colision","order":1,"path":"objects/obj_colision/obj_colision.yy",},
@@ -24,7 +25,9 @@
     {"name":"oEnemy_state","order":3,"path":"scripts/oEnemy_state/oEnemy_state.yy",},
     {"name":"oPlayer_states","order":2,"path":"scripts/oPlayer_states/oPlayer_states.yy",},
     {"name":"sOlavo","order":3,"path":"sprites/sOlavo/sOlavo.yy",},
-    {"name":"sSlash","order":2,"path":"sprites/sSlash/sSlash.yy",},
+    {"name":"sPlayerHitbox","order":3,"path":"sprites/sPlayerHitbox/sPlayerHitbox.yy",},
+    {"name":"sPlayerWalking","order":2,"path":"sprites/sPlayerWalking/sPlayerWalking.yy",},
+    {"name":"sSlash","order":1,"path":"sprites/sSlash/sSlash.yy",},
     {"name":"teste","order":1,"path":"sprites/teste/teste.yy",},
   ],
 }
