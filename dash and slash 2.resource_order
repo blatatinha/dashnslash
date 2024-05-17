@@ -27,6 +27,8 @@
     {"name":"sOlavo","order":3,"path":"sprites/sOlavo/sOlavo.yy",},
     {"name":"sPlayerHitbox","order":3,"path":"sprites/sPlayerHitbox/sPlayerHitbox.yy",},
     {"name":"sPlayerWalking","order":2,"path":"sprites/sPlayerWalking/sPlayerWalking.yy",},
+    {"name":"sPlayerWalljump","order":4,"path":"sprites/sPlayerWalljump/sPlayerWalljump.yy",},
+    {"name":"sPlayerWalljumpHitbox_1","order":5,"path":"sprites/sPlayerWalljumpHitbox_1/sPlayerWalljumpHitbox_1.yy",},
     {"name":"sSlash","order":1,"path":"sprites/sSlash/sSlash.yy",},
     {"name":"teste","order":1,"path":"sprites/teste/teste.yy",},
   ],

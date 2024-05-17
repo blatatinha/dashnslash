@@ -1,9 +1,23 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 	
+	
+	
 if (!invincible && place_meeting(x, y, oOlavo))
 {
+	
+knockback_strength = 10;  
+knockback_duration = 20;
+
+
+	knockback_direction = point_direction(other.x, other.y, x, y);
+
+
+	knockback_power = knockback_strength;
+	knockback_timer = knockback_duration;
+
 	_health -= 1;
+	state = knockback
     if (_health <= 0) {
         show_message("Game Over");
         game_restart();

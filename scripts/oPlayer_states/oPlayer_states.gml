@@ -20,7 +20,7 @@ function state_free()
 	var jump = keyboard_check_pressed(vk_space);
 	var vDirection = ((right - left) * vel_max);
 	var grounded = place_meeting(x, y + 1, obj_colision);
-    
+    var onwall = place_meeting(x + image_xscale, y, obj_colision);
 	
 	vel_x += lerp( vel_x, vDirection, vel_max)
 
@@ -72,6 +72,11 @@ function state_free()
 		
 		time_source_start(timerswing);
 	}	
+	
+	if(!grounded and onwall)
+	{
+	state = walljump;
+	}
 }
 function state_dash()
 {	
@@ -99,5 +104,43 @@ function state_dash()
 }
 function knockback()
 {
-    
+	var grounded = place_meeting(x, y + 1, obj_colision);
+	if (knockback_timer > 0)
+	{
+	    var knockback_speed = knockback_power * (knockback_timer / knockback_duration);
+	    x += lengthdir_x(knockback_speed, ));
+	    y += lengthdir_y(knockback_speed, ));
+
+	    knockback_timer -= 1;
+	}
+}
+function walljump()
+{
+	var onwall = place_meeting(x + image_xscale, y, obj_colision);
+	var left = keyboard_check(ord("A"));
+	var right = keyboard_check(ord("D"));
+	var grounded = place_meeting(x, y + 1, obj_colision);
+	var vDirection = (right - left)
+	var jump = keyboard_check_pressed(vk_space)
+	sprite_index = sPlayerWalljump
+	mask_index = sPlayerWalljumpHitbox_1
+if(onwall)
+	{
+		vel_y = vel_onwall 
+		if (jump)
+		{
+			vel_y = -velJump
+			vel_x = 15 * image_xscale *-1
+			state = state_free
+		}
+		if(grounded)
+		{
+			state = state_free;
+		}
+	
+	}
+	else
+	{
+	state = state_free	
+	}	
 }
