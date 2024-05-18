@@ -1,12 +1,10 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 	
-	
-	
 if (!invincible && place_meeting(x, y, oOlavo))
 {
 
-	_health -= 1;
+	_health -= oSlash.swingdamage;
 	k_vel_y = -8
 	state = knockback
     if (_health <= 0) {

@@ -1,9 +1,6 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-knockback_strength = 10;  
-knockback_duration = 20;
-knockback_power = knockback_strength;
-knockback_timer = knockback_duration;
+
 
 vel_x = 0;
 vel_y = 0;
@@ -15,6 +12,7 @@ vel_max = 1.5;
 vel_onwall = 0.5
 maxHealth = 5
 _health = maxHealth
+ k_vel_y = -7
  
 invincible = false;
 state = state_free

@@ -6,4 +6,7 @@ vFriction = 0.5;
 vGravity = 1;
 velJump = 10;
 vel_max = 2;
+maxHealth = 20
+_health = maxHealth
+k_vel_y = -1;
 state = estate_idle;

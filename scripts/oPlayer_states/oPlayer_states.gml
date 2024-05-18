@@ -104,18 +104,32 @@ function state_dash()
 }
 function knockback()
 {
+	
 	var grounded = place_meeting(x, y + 1, obj_colision);
-	if (knockback_timer > 0)
+	var endknockback = function()
 	{
-	    var knockback_speed = knockback_power * (knockback_timer / knockback_duration);
-	    x += lengthdir_x(knockback_speed, ));
-	    y += lengthdir_y(knockback_speed, ));
+		state = state_free
+	}
+    var timerknockback = time_source_create(time_source_game, 15, time_source_units_frames, endknockback);
+	time_source_start(timerknockback);
+	
+	
+	k_vel_y += 1.2
+	vel_y = k_vel_y
+	vel_x = -8 * image_xscale
 
-	    knockback_timer -= 1;
+	if (place_meeting(x + vel_x, y, obj_colision))
+	{
+		while(!place_meeting(x + sign(vel_x) , y, obj_colision))
+		{
+			x+=sign(vel_x);
+		}
+		vel_x= 0;
 	}
 }
 function walljump()
 {
+	
 	var onwall = place_meeting(x + image_xscale, y, obj_colision);
 	var left = keyboard_check(ord("A"));
 	var right = keyboard_check(ord("D"));
@@ -124,7 +138,8 @@ function walljump()
 	var jump = keyboard_check_pressed(vk_space)
 	sprite_index = sPlayerWalljump
 	mask_index = sPlayerWalljumpHitbox_1
-if(onwall)
+	
+	if(onwall)
 	{
 		vel_y = vel_onwall 
 		if (jump)
@@ -141,6 +156,6 @@ if(onwall)
 	}
 	else
 	{
-	state = state_free	
+		state = state_free	
 	}	
 }
